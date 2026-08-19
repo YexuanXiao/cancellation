@@ -31,7 +31,7 @@ rethrown at every coroutine frame along the way.
 The key insight is that the defining feature of a coroutine is that it can
 be *suspended*. A suspended coroutine can be *destroyed*, and a suspended
 coroutine can be *resumed*. This proposal observes that a suspended
-coroutine can also be *cancelled*:
+coroutine can also be *cancelled*.
 
 We like suspended coroutines. A suspended coroutine already contains
 all of the information needed to destroy it; it therefore also contains
@@ -57,6 +57,12 @@ Consider a task hierarchy of depth N. Cancelling the innermost task
 causes O(N) throw/catch pairs, each of which involves unwinding a
 coroutine frame, storing an `exception_ptr`, and rethrowing it in the
 parent. For deep hierarchies this cost dominates.
+
+I think we should all agree that exceptions resulting from most `co_await`
+and `co_yield` expressions do not need to be caught by user-written
+try-catch blocks, and should simply be propagated to their caller, as is
+customary in C++. However, the current coroutine mechanism does not provide
+a facility to directly convey either "cancellation" or "exception" state.
 
 ## Cancellation as a third exit path ## {#third-exit-path}
 
@@ -376,6 +382,10 @@ failing path.
 [Editor's note: The following wording is relative to [[!N5055]].]
 
 ## Core language ## {#wording-core}
+
+Change the value of `__cpp_impl_coroutine` in [cpp.predefined] to `2026????L`.
+
+Change the value of `__cpp_lib_coroutine` in [version.syn] to `2026????L`.
 
 Insert a new paragraph after [dcl.fct.def.coroutine] paragraph 4:
 
