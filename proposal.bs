@@ -385,8 +385,6 @@ failing path.
 
 Change the value of `__cpp_impl_coroutine` in [cpp.predefined] to `2026????L`.
 
-Change the value of `__cpp_lib_coroutine` in [version.syn] to `2026????L`.
-
 Insert a new paragraph after [dcl.fct.def.coroutine] paragraph 4:
 
 > A coroutine whose promise type declares a member function
@@ -411,6 +409,8 @@ Insert a new paragraph after [dcl.fct.def.coroutine] paragraph 18:
 > exception propagates to the caller or resumer.
 
 ## Library ## {#wording-library}
+
+Change the value of `__cpp_lib_coroutine` in [version.syn] to `2026????L`.
 
 Modify [coroutine.handle.general] as follows:
 
