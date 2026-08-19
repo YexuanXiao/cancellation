@@ -444,7 +444,8 @@ Insert a new subclause [coroutine.handle.cancel], "Cancellation" after
 >
 > void request_cancel() const;
 >
-> *Preconditions:* The coroutine is cancellation-aware.
+> *Preconditions:* `*this` refers to a suspended coroutine. The coroutine is
+> cancellation-aware.
 >
 > *Returns:* `true` if the cancellation state of the coroutine is set, otherwise
 > `false`.
