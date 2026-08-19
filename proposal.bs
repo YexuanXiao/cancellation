@@ -2,7 +2,7 @@
 Title: Collaborative cancellation for coroutines
 Shortname: Dxxxx
 Revision: 0
-Status: P
+Status: D
 Date: 2026-08-19
 Group: WG21
 Audience: EWG, LEWG
