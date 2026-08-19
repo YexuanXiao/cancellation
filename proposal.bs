@@ -352,7 +352,11 @@ non-throwing baseline. A baseline with a single non-nested generator
 the cost of one generator whose exception escapes directly, without any
 intermediate frames.
 
-Clang trunk (20260819), -O2, x86-64
+Since libc++ has not yet implemented `std::generator`, the `std::generator`
+used in this benchmark is based on the ongoing
+[LLVM#201854](https://github.com/llvm/llvm-project/pull/201854).
+
+The environment is Clang trunk (20260817), -O2, x86-64.
 
 <table class="data">
   <caption>Benchmark results (ns/round)</caption>
